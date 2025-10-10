@@ -1,0 +1,5 @@
+Package: CoralCarb
+Type: Package
+Title: Coral calcifying fluid carbonate parameters caclulation package 
+Version: 0.0.1.0
+RoxygenNote: 7.3.3
