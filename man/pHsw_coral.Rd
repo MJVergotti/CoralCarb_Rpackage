@@ -8,6 +8,14 @@ pHsw_coral(pHcf, species = "Cladocora caespitosa")
 }
 \arguments{
 \item{pHcf}{The pH of the calcifying fluid. You can use the function pHcf() to calculate it.}
+
+\item{species}{Choose a coral species from the list: 
+"Porites cylindrica" (Hönisch et al. 2004), 
+"Acropora nobilis" (Hönisch et al. 2004),
+"Acropora sp." (Reynaud et al. 2004),
+"Porites sp." (Krief et al. 2010),
+"Stylophora pistillata" (Krief et al. 2010),
+"Cladocora caespitosa" (Trotter al. 2011)}
 }
 \value{
 The pHsw
