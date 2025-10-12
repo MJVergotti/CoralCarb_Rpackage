@@ -183,7 +183,7 @@ pHsw_coral <- function(pHcf, species = "Cladocora caespitosa") {
 #' @export
 protons_cf <- function(pHcf){
   protons <- 10^-(pHcf);
-  return(pHcf);
+  return(protons);
 }
 
 #' Partition coefficient of B/Ca 
