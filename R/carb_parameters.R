@@ -106,9 +106,17 @@ pHcf <- function(Kb, d11Bsw, d11B, alpha_klochko){
 #' @export
 pHsw_coral <- function(pHcf, species = "Cladocora caespitosa") {
   
+  # Convert input variables to numeric
+  pHcf <- as.numeric(pHcf)
+  
+  # Verify that the conversion was succesfull
+  if(is.na(pHcf)){
+    stop("Error: The argument 'pHcf' must be numeric or convertible to numeric.")
+  }
+  
   # Initialize variables
-  a <- NULL
-  b <- NULL
+  c_val <- NULL
+  d_val <- NULL
   
   # --- 1. Parameter Selection based on Species ---
   if (species == "Cladocora caespitosa") {

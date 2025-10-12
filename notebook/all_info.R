@@ -121,7 +121,8 @@ pHsw_coral <- function(pHcf, species = "Cladocora caespitosa") {
 
 # library(roxygen2); # Read in the roxygen2 R package
 # roxygenise();      # Builds the help files
+# roxygen2::roxygenise()
 
 ## TEST
 #detach("package:CoralCarb", unload = TRUE)
-#install_github("https://github.com/MJVergotti/CoralCarb_Rpackage.git", force=TRUE)
+#devtools::install_github("https://github.com/MJVergotti/CoralCarb_Rpackage.git", force=TRUE)
