@@ -20,31 +20,31 @@ TCel_to_Kelv <- function(TCel){
 #' @param Sal The salinity in UPS 
 #' @return The aragonite solubility constant
 #' @export
-Ksp <- function(TKelv, Sal){
+Ksp_arag <- function(TKelv, Sal){
   Ksp <- 10^(-171.945 - 0.077993*TKelv + (2903.293/TKelv) + 71.595*log10(TKelv) +
                ( - 0.068393 + 0.0017276*TKelv + 88.135/TKelv) * (Sal^0.5) - 0.10018*Sal + 0.0059415*Sal^1.5);
   return(Ksp);
 }
 
-#' Total boron concentration 
+#' Total boron concentration in the calcifying fluid
 #'
 #' Calculates the concentration of toal boron in the calcifying fluid in mmol/kg based on Zeebe and Wolf-Gladrow 2001
 #' @param Sal The salinity in UPS
 #' @return The total boron concentration
 #' @export
-Btot <- function(Sal){
+Btot_cf <- function(Sal){
   Btot <- 4.16*10^-4 * (Sal/35)*1000;
   return(Btot);
 }
 
-#' 1st cequilibrium constant of dissociation of carbonic acid in seawater 
+#' 1st equilibrium constant of dissociation of carbonic acid in seawater 
 #'
 #' Calculates the 1st constant of dissociation of carbonic acid in seawater based on Zeebe and Wolf-Gladrow 2001, Mehrback et al. 1973 and Dickson and Millero 1987
 #' @param TKelv The temperature in Kelvin. You can use the function TCel() to calculate it 
 #' @param Sal The salinity in UPS
 #' @return The 1st equilibrium constant of dissociation
 #' @export
-K1 <- function(TKelv, Sal){
+K1_sw <- function(TKelv, Sal){
   K1 <- 10^-(3670.7/TKelv - 62.008 + 9.7944*log(TKelv) - 0.0118*Sal + 0.000116*Sal^2);
   return(K1);
 }
@@ -56,19 +56,19 @@ K1 <- function(TKelv, Sal){
 #' @param Sal The salinity in UPS
 #' @return The 2nd equilibrium constant of dissociation
 #' @export
-K2 <- function(TKelv, Sal){
+K2_sw <- function(TKelv, Sal){
   K2 <- 10^-(1394.7/TKelv + 4.777 - 0.0184*Sal + 0.000118*Sal^2);
   return(K2);
 }
 
-#' Constant of base dissociation
+#' Constant of base dissociation of boron in seawater
 #' 
-#' Calculates the constant of base dissociation based on Dickson et al. 1999, Zeebe and Wolf-Gladrow 2001
+#' Calculates the constant of base dissociation of boron in seawater based on Dickson et al. 1999, Zeebe and Wolf-Gladrow 2001
 #' @param Sal The salinity in UPS
 #' @param TCel The temperature in degrees Celsius
 #' @return The constant of base dissociation
 #' @export
-Kb <- function(Sal, TCel){
+Kb_sw <- function(Sal, TCel){
   Kb <- 10^-(-log10(exp(((- 8966.9 - 2890.53*Sal^(1/2) - 77.942*Sal + 
                             1.728*Sal^(3/2) - 0.0996*Sal^(2))/(TCel + 273.15)) +
                           148.0248 + 137.1942*Sal^(1/2) + 1.62142*Sal - 
@@ -102,13 +102,13 @@ pHsw_cladocora <- function(pHcf){
   return(pHsw);
 }
 
-#' Hydrogen ions concentrations
+#' Hydrogen ions concentrations in the calcifying fluid
 #' 
-#' Calculates the concentration of hydrogen ions in mol/kg
+#' Calculates the concentration of hydrogen ions in calcifying fluid in mol/kg
 #' @param pHcf The pHcf. You can use the function pHcf() to calculate it 
 #' @return The Hydrogen ions concentration
 #' @export
-protons <- function(pHcf){
+protons_cf <- function(pHcf){
   protons <- 10^-(pHcf);
   return(pHcf);
 }
@@ -118,12 +118,12 @@ protons <- function(pHcf){
 #' Calculates the partition coefficient of B/Ca in mol/kg (McCulloch et al. 2017)
 #' @return The partition coefficient of B/Ca
 #' @export
-Kd <- function(protons){
+Kd_BCa <- function(protons){
   Kd <- 0.00297 * exp( - (- 0.0202)*protons)*1000;
   return(Kd);
 }
 
-#' Borate ion concentration
+#' Borate ion concentration in the calcifying fluid
 #' 
 #' Calculates the borate ion concentration in the calcifying fluid in umol/kg based on D'Olivo and McCulloch, 2017, Holcomb et al. 2014
 #' @param Btot The total boron concentration. You can use the function Btot() to calculate it 
@@ -131,12 +131,12 @@ Kd <- function(protons){
 #' @param Kb The constant of base dissociation. You can use the function Kb() to calculate it 
 #' @return The concentration of borate ions
 #' @export
-borate <- function(Btot, protons, Kb){
+borate_cf <- function(Btot, protons, Kb){
   borate <- (Btot / (1 + (protons/Kb))) * 1000;
   return(borate);
 }
 
-#' Carbonate ion concentration
+#' Carbonate ion concentration in the calcifying fluid
 #' 
 #' Calculates the concentration of carbonate ions in the calcifying fluid in umol/kg (based on McCulloch et al. 2017)
 #' @param Kd The partition coefficient of B/Ca. You can calculate it with the function carbonate()
@@ -144,7 +144,7 @@ borate <- function(Btot, protons, Kb){
 #' @param BCa The B/Ca availability in the coral skeleton in mmol/mol
 #' @return The carbonate ion concentration
 #' @export
-carbonate <- function(Kd, borate, BCa){
+carbonate_cf <- function(Kd, borate, BCa){
   carbonate <- Kd*borate/(BCa/1000);
   return(carbonate);
 }
