@@ -21,3 +21,6 @@ The pHcf
 \description{
 Calculates the pHcf based on Holcomb et al. 2014
 }
+\examples{
+pHcf <- pHcf(2.6e-09, 39.5, 24.43, 1.0272);
+}

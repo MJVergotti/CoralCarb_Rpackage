@@ -21,3 +21,6 @@ The DICcf
 \description{
 Calculates the DIC of the calcifying fluid based on D'Olivo and McCulloch 2017
 }
+\examples{
+DICcf_1 <- DICcf(930.5, 3.04e-09, 1.47e-06, 1.16e-09);
+}

@@ -15,3 +15,6 @@ The Hydrogen ions concentration
 \description{
 Calculates the concentration of hydrogen ions in calcifying fluid in mol/kg
 }
+\examples{
+H_1 <- protons_cf(8.51);
+}

@@ -23,3 +23,6 @@ The pHsw
 \description{
 Calculates the reconstructed pH of seawater using the species specific equation for the coral Cladocora caespitosa, defined by Trotter et al. 2011.
 }
+\examples{
+pHsw_Cladocora <- pHsw_coral(8.51, species = "Cladocora caespitosa");
+}

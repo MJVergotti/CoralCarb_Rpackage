@@ -6,9 +6,15 @@
 \usage{
 Kd_BCa(protons)
 }
+\arguments{
+\item{protons}{The concentration of hydrogen ions. Calculate with the function protons()}
+}
 \value{
 The partition coefficient of B/Ca
 }
 \description{
 Calculates the partition coefficient of B/Ca in mol/kg (McCulloch et al. 2017)
+}
+\examples{
+Kd_1 <- Kd_BCa(3.04e-09);
 }

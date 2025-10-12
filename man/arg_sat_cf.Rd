@@ -19,3 +19,6 @@ The aragonite saturation state of the calcifying fluid
 \description{
 Calculates the aragonite saturation state of the calcifying fluid using the formula from D'Olivo and McCUlloch 2017
 }
+\examples{
+omega_cf <- arg_sat_cf(930.5, 0.0112, 7.25e-07);
+}

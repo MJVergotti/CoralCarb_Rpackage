@@ -19,3 +19,6 @@ The carbonate ion concentration
 \description{
 Calculates the concentration of carbonate ions in the calcifying fluid in umol/kg (based on McCulloch et al. 2017)
 }
+\examples{
+CO32_cf <- carbonate_cf(2.97, 208.3, 664.8);
+}

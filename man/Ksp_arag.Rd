@@ -4,10 +4,10 @@
 \alias{Ksp_arag}
 \title{Aragonite solubility constant}
 \usage{
-Ksp_arag(TKelv, Sal)
+Ksp_arag(TCel, Sal)
 }
 \arguments{
-\item{TKelv}{The temperature in Kelvin. You can use the function TCel() to calculate it}
+\item{TCel}{The temperature in degrees Celsius}
 
 \item{Sal}{The salinity in UPS}
 }
@@ -16,4 +16,8 @@ The aragonite solubility constant
 }
 \description{
 Calculates the aragonite solubility constant in mol/kg based Zeebe and Wolf-Gladrow 2001
+}
+\examples{
+Ksp1 <- Ksp_arag(24, 38);
+Ksp2 <- Ksp_arag(c(23, 25, 27), c(37, 37.5, 38));
 }

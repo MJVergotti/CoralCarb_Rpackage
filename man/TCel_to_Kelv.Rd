@@ -16,6 +16,6 @@ The temperature in kelvin
 Converts temperature in Celsius to kelvin
 }
 \examples{
-temp_kelvin <- TCel_to_Kelv(0);
-temp_kelvin <- TCel_to_Kelv(c(0, -273));
+temp_kelvin1 <- TCel_to_Kelv(0);
+temp_kelvin2 <- TCel_to_Kelv(c(0, -273));
 }

@@ -19,3 +19,6 @@ The concentration of borate ions
 \description{
 Calculates the borate ion concentration in the calcifying fluid in umol/kg based on D'Olivo and McCulloch, 2017, Holcomb et al. 2014
 }
+\examples{
+B(OH)3_cf <- borate_cf(0.45, 3.04e-09, 2.58-09);
+}

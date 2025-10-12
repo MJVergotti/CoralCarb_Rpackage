@@ -4,10 +4,10 @@
 \alias{K1_sw}
 \title{1st equilibrium constant of dissociation of carbonic acid in seawater}
 \usage{
-K1_sw(TKelv, Sal)
+K1_sw(TCel, Sal)
 }
 \arguments{
-\item{TKelv}{The temperature in Kelvin. You can use the function TCel() to calculate it}
+\item{TCel}{The temperature in degrees Celsius}
 
 \item{Sal}{The salinity in UPS}
 }
@@ -16,4 +16,8 @@ The 1st equilibrium constant of dissociation
 }
 \description{
 Calculates the 1st constant of dissociation of carbonic acid in seawater based on Zeebe and Wolf-Gladrow 2001, Mehrback et al. 1973 and Dickson and Millero 1987
+}
+\examples{
+K1_1 <- K1_sw(25, 35);
+K1_2 <- K1_sw(c(27, 28, 29), c(38.7, 38.6, 38.2));
 }
