@@ -97,9 +97,54 @@ pHcf <- function(Kb, d11Bsw, d11B, alpha_klochko){
 #' @param pHcf The pH of the calcifying fluid. You can use the function pHcf() to calculate it. 
 #' @return The pHsw
 #' @export
-pHsw_cladocora <- function(pHcf){
-  pHsw <- (1/0.48)*pHcf - 10;
-  return(pHsw);
+pHsw_coral <- function(pHcf, species = "Cladocora caespitosa") {
+  
+  # Initialize variables
+  a <- NULL
+  b <- NULL
+  
+  # --- 1. Parameter Selection based on Species ---
+  if (species == "Cladocora caespitosa") {
+    # pHsw <- (pHcf - 4.7974) / (1 - 0.521)
+    c_val <- - 0.521
+    d_val <- 4.7974
+    
+  } else if (species == "Porites sp.") {
+    # pHsw <- (pHcf - 5.96) / (1 - 0.68)
+    c_val <- - 0.68
+    d_val <- 5.96
+    
+  } else if (species == "Porites cylindrica") {
+    # pHsw <- (pHcf - 4.72) / (1 - 0.53)
+    c_val <- - 0.53
+    d_val <- 4.72
+    
+    
+  } else if (species == "Acropora nobilis") {
+    # pHsw <- (pHcf - 4.40) / (1 - 0.50)
+    c_val <- - 0.50
+    d_val <- 4.40    
+    
+    
+  } else if (species == "Acropora sp.") {
+    # pHsw <- (pHcf - 4.28) / (1 - 0.48)
+    c_val <- - 0.48
+    d_val <- 4.28    
+    
+    
+  } else if (species == "Stylophora pistillata") {
+    # pHsw <- (pHcf - 6.06) / (1 - 0.70)
+    c_val <- - 0.70
+    d_val <- 6.06    
+    
+  } else {
+    stop("Error: Species '", species, "' not recognized. Please use 'Cladocora caespitosa', 'Porites sp.', 'Porites cylindrica',
+         'Acropora nobilis', 'Acropora sp.' or 'Stylophora pistillata'.")
+  }
+  # --- 2. Generic formula ---
+  pHsw <- (pHcf - d_val) / (1 + c_val)
+  
+  return(pHsw)
 }
 
 #' Hydrogen ions concentrations in the calcifying fluid
