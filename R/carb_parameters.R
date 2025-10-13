@@ -207,7 +207,7 @@ Kd_BCa <- function(protons){
 #' @param Kb The constant of base dissociation. You can use the function Kb() to calculate it 
 #' @return The concentration of borate ions
 #' @examples
-#' B(OH)3_cf <- borate_cf(0.45, 3.04e-09, 2.58-09);
+#' BOH3_cf <- borate_cf(0.45, 3.04e-09, 2.58-09);
 #' @export
 borate_cf <- function(Btot, protons, Kb){
   borate <- (Btot / (1 + (protons/Kb))) * 1000;
