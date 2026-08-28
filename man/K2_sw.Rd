@@ -7,17 +7,17 @@
 K2_sw(TCel, Sal)
 }
 \arguments{
-\item{TCel}{The temperature in degrees in Celsius}
+\item{TCel}{The temperature in degrees in Celsius.}
 
-\item{Sal}{The salinity in UPS}
+\item{Sal}{The salinity in UPS.}
 }
 \value{
-The 2nd equilibrium constant of dissociation
+The 2nd equilibrium constant of dissociation.
 }
 \description{
-Calculated the 2nd constant of dissociation of carbonic acid in seawater based on Zeebe and Wolf-Gladrow 2001, Mehrback et al. 1973 and Dickson and Millero 1987
+Calculated the 2nd constant of dissociation of carbonic acid in seawater based on Zeebe and Wolf-Gladrow 2001, Mehrback et al. 1973 and Dickson and Millero 1987.
 }
 \examples{
-K2_1 <- K2_sw(25, 35);
-K2_2 <- K2_sw(c(27, 28, 29), c(38.7, 38.6, 38.2));
+K2_1 <- K2_sw(25, 35)
+K2_2 <- K2_sw(c(27, 28, 29), c(38.7, 38.6, 38.2))
 }

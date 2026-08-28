@@ -4,7 +4,11 @@
 \alias{pHsw_coral}
 \title{Seawater pH reconstruction}
 \usage{
-pHsw_coral(pHcf, species = "Cladocora caespitosa")
+pHsw_coral(
+  pHcf,
+  species = c("Cladocora caespitosa", "Porites sp.", "Porites cylindrica",
+    "Acropora nobilis", "Acropora sp.", "Stylophora pistillata")
+)
 }
 \arguments{
 \item{pHcf}{The pH of the calcifying fluid. You can use the function pHcf() to calculate it.}
@@ -15,14 +19,15 @@ pHsw_coral(pHcf, species = "Cladocora caespitosa")
 "Acropora sp." (Reynaud et al. 2004),
 "Porites sp." (Krief et al. 2010),
 "Stylophora pistillata" (Krief et al. 2010),
-"Cladocora caespitosa" (Trotter al. 2011)}
+"Cladocora caespitosa" (Trotter et al. 2011) (Default).}
 }
 \value{
-The pHsw
+The pHsw.
 }
 \description{
-Calculates the reconstructed pH of seawater using the species specific equation for the coral Cladocora caespitosa, defined by Trotter et al. 2011.
+Calculates the reconstructed pH of seawater using species-specific equations.
 }
 \examples{
-pHsw_Cladocora <- pHsw_coral(8.51, species = "Cladocora caespitosa");
+pHsw_Cladocora <- pHsw_coral(8.51, species = "Cladocora caespitosa")
+pHsw_default <- pHsw_coral(8.51)
 }

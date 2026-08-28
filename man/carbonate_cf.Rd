@@ -7,18 +7,18 @@
 carbonate_cf(Kd, borate, BCa)
 }
 \arguments{
-\item{Kd}{The partition coefficient of B/Ca. You can calculate it with the function carbonate()}
+\item{Kd}{The partition coefficient of B/Ca. You can calculate it with the function carbonate().}
 
-\item{borate}{The borate ion concentration. You can calculate it with the function borate()}
+\item{borate}{The borate ion concentration. You can calculate it with the function borate().}
 
-\item{BCa}{The B/Ca availability in the coral skeleton in mmol/mol}
+\item{BCa}{The B/Ca availability in the coral skeleton in mmol/mol.}
 }
 \value{
-The carbonate ion concentration
+The carbonate ion concentration.
 }
 \description{
-Calculates the concentration of carbonate ions in the calcifying fluid in umol/kg (based on McCulloch et al. 2017)
+Calculates the concentration of carbonate ions in the calcifying fluid in umol/kg (based on McCulloch et al. 2017).
 }
 \examples{
-CO32_cf <- carbonate_cf(2.97, 208.3, 664.8);
+CO32_cf <- carbonate_cf(2.97, 208.3, 664.8)
 }

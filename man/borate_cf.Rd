@@ -7,18 +7,18 @@
 borate_cf(Btot, protons, Kb)
 }
 \arguments{
-\item{Btot}{The total boron concentration. You can use the function Btot() to calculate it}
+\item{Btot}{The total boron concentration. You can use the function Btot() to calculate it.}
 
-\item{protons}{The concentration of hydrogen ions. You can use the function protons() to calculate it}
+\item{protons}{The concentration of hydrogen ions. You can use the function protons() to calculate it.}
 
-\item{Kb}{The constant of base dissociation. You can use the function Kb() to calculate it}
+\item{Kb}{The constant of base dissociation. You can use the function Kb() to calculate it.}
 }
 \value{
-The concentration of borate ions
+The concentration of borate ions.
 }
 \description{
-Calculates the borate ion concentration in the calcifying fluid in umol/kg based on D'Olivo and McCulloch, 2017, Holcomb et al. 2014
+Calculates the borate ion concentration in the calcifying fluid in umol/kg based on D'Olivo and McCulloch, 2017, Holcomb et al. 2014.
 }
 \examples{
-BOH3_cf <- borate_cf(0.45, 3.04e-09, 2.58-09);
+BOH3_cf <- borate_cf(0.45, 3.04e-09, 2.58e-09)
 }

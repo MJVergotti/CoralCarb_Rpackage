@@ -7,17 +7,17 @@
 Kb_sw(TCel, Sal)
 }
 \arguments{
-\item{TCel}{The temperature in degrees Celsius}
+\item{TCel}{The temperature in degrees Celsius.}
 
-\item{Sal}{The salinity in UPS}
+\item{Sal}{The salinity in UPS.}
 }
 \value{
-The constant of base dissociation
+The constant of base dissociation.
 }
 \description{
-Calculates the constant of base dissociation of boron in seawater based on Dickson et al. 1999, Zeebe and Wolf-Gladrow 2001
+Calculates the constant of base dissociation of boron in seawater based on Dickson et al. 1999, Zeebe and Wolf-Gladrow 2001.
 }
 \examples{
-Kb_1 <- Kb_sw(25, 35);
-Kb_2 <- Kb_sw(c(27, 28, 29), c(38.7, 38.6, 38.2));
+Kb_1 <- Kb_sw(25, 35)
+Kb_2 <- Kb_sw(c(27, 28, 29), c(38.7, 38.6, 38.2))
 }

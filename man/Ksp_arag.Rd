@@ -7,17 +7,17 @@
 Ksp_arag(TCel, Sal)
 }
 \arguments{
-\item{TCel}{The temperature in degrees Celsius}
+\item{TCel}{The temperature in degrees Celsius.}
 
-\item{Sal}{The salinity in UPS}
+\item{Sal}{The salinity in UPS.}
 }
 \value{
-The aragonite solubility constant
+The aragonite solubility constant.
 }
 \description{
-Calculates the aragonite solubility constant in mol/kg based Zeebe and Wolf-Gladrow 2001
+Calculates the aragonite solubility constant in mol/kg based Zeebe and Wolf-Gladrow 2001.
 }
 \examples{
-Ksp1 <- Ksp_arag(24, 38);
-Ksp2 <- Ksp_arag(c(23, 25, 27), c(37, 37.5, 38));
+Ksp1 <- Ksp_arag(24, 38)
+Ksp2 <- Ksp_arag(c(23, 25, 27), c(37, 37.5, 38))
 }

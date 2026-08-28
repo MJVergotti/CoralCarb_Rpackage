@@ -4,21 +4,21 @@
 \alias{arg_sat_cf}
 \title{Aragonite saturation state of the calcifying fluid}
 \usage{
-arg_sat_cf(carbonate, ca_sw, Ksp)
+arg_sat_cf(carbonate, Ksp, ca_sw = 0.0112)
 }
 \arguments{
 \item{carbonate}{The concentration of carbonate ions in umol/kg. You can use the function carbonate() to calculate it.}
 
-\item{ca_sw}{The concentration of Ca ions in mol/kg. Default is Ca_sw = 0.0112 (value for the Mediterranean Sea, based on McCulloch et al. 2012)}
-
 \item{Ksp}{The solubility constant of aragonite in mol/kg. You can use the function Ksp() to calculate it.}
+
+\item{ca_sw}{The concentration of Ca ions in mol/kg. Default is Ca_sw = 0.0112 (value for the Mediterranean Sea, based on McCulloch et al. 2012).}
 }
 \value{
-The aragonite saturation state of the calcifying fluid
+The aragonite saturation state of the calcifying fluid.
 }
 \description{
-Calculates the aragonite saturation state of the calcifying fluid using the formula from D'Olivo and McCUlloch 2017
+Calculates the aragonite saturation state of the calcifying fluid using the formula from D'Olivo and McCUlloch 2017.
 }
 \examples{
-omega_cf <- arg_sat_cf(930.5, 0.0112, 7.25e-07);
+omega_cf <- arg_sat_cf(930.5, 0.0112, 7.25e-07)
 }

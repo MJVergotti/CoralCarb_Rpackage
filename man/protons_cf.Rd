@@ -7,14 +7,14 @@
 protons_cf(pHcf)
 }
 \arguments{
-\item{pHcf}{The pHcf. You can use the function pHcf() to calculate it}
+\item{pHcf}{The pHcf. You can use the function pHcf() to calculate it.}
 }
 \value{
-The Hydrogen ions concentration
+The Hydrogen ions concentration.
 }
 \description{
-Calculates the concentration of hydrogen ions in calcifying fluid in mol/kg
+Calculates the concentration of hydrogen ions in calcifying fluid in mol/kg.
 }
 \examples{
-H_1 <- protons_cf(8.51);
+H_1 <- protons_cf(8.51)
 }

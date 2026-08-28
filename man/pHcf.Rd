@@ -4,23 +4,23 @@
 \alias{pHcf}
 \title{Calcifying fluid pH}
 \usage{
-pHcf(Kb, d11Bsw, d11B, alpha_klochko)
+pHcf(Kb, d11B, d11Bsw = 39.5, alpha_klochko = 1.0272)
 }
 \arguments{
-\item{Kb}{The constant of base dissociation. You can use the function Kb() to calculate it}
+\item{Kb}{The constant of base dissociation. You can use the function Kb() to calculate it.}
 
-\item{d11Bsw}{The d11B of seawater in permil. Default is d11B_foster08 = 39.5 (Foster 2008); else d11B_DOlivoMcCulloch17 = 39.61 (D'Olivo and McCUlloch 2017)}
+\item{d11B}{The d11B of the coral.}
 
-\item{d11B}{The d11B of the coral}
+\item{d11Bsw}{The d11B of seawater in permil. Default is d11Bsw = 39.5 (Foster 2008); else d11Bsw = 39.61 (D'Olivo and McCUlloch 2017).}
 
-\item{alpha_klochko}{The alpha value reported by Klochko: alpha = 1.0272 (Klochko et al. 2016)}
+\item{alpha_klochko}{The alpha value reported by Klochko: alpha = 1.0272 (Klochko et al. 2016).}
 }
 \value{
-The pHcf
+The pHcf.
 }
 \description{
-Calculates the pHcf based on Holcomb et al. 2014
+Calculates the pHcf based on Holcomb et al. 2014.
 }
 \examples{
-pHcf <- pHcf(2.6e-09, 39.5, 24.43, 1.0272);
+pHcf <- pHcf(2.6e-09, 39.5, 24.43, 1.0272)
 }

@@ -2,20 +2,20 @@
 % Please edit documentation in R/carb_parameters.R
 \name{TCel_to_Kelv}
 \alias{TCel_to_Kelv}
-\title{Temperature conversion to kelvin}
+\title{Temperature conversion to Kelvin}
 \usage{
 TCel_to_Kelv(TCel)
 }
 \arguments{
-\item{TCel}{The temperature in degrees Celsius}
+\item{TCel}{The temperature in degrees Celsius.}
 }
 \value{
-The temperature in kelvin
+The temperature in Kelvin.
 }
 \description{
-Converts temperature in Celsius to kelvin
+Converts temperature in Celsius to Kelvin.
 }
 \examples{
-temp_kelvin1 <- TCel_to_Kelv(0);
-temp_kelvin2 <- TCel_to_Kelv(c(0, -273));
+temp_kelvin1 <- TCel_to_Kelv(0)
+temp_kelvin2 <- TCel_to_Kelv(c(0, -273.15))
 }

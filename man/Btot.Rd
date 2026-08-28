@@ -7,15 +7,15 @@
 Btot(Sal)
 }
 \arguments{
-\item{Sal}{The salinity in UPS}
+\item{Sal}{The salinity in UPS.}
 }
 \value{
-The total boron concentration
+The total boron concentration.
 }
 \description{
-Calculates the total boron concentration in mmol/kg based on Zeebe and Wolf-Gladrow 2001
+Calculates the total boron concentration in mmol/kg based on Zeebe and Wolf-Gladrow 2001.
 }
 \examples{
-Btot1 <- Btot(35);
-Btot2 <- Btot(c(35, 38));
+Btot1 <- Btot(35)
+Btot2 <- Btot(c(35, 38))
 }
