@@ -11,23 +11,24 @@ An R package to calculate the carbonate parameters of coral calcifying fluid.
 The `CoralCarb` package is currently only available from GitHub. 
 It can be installed by runing the following code:
 ```r
-# If you don't have devtools installed:
-# install.packages("devtools")
+# If you don't have remotes installed:
+# install.packages("remotes")
 
-# Install the CoralCarb package
-devtools::install_github("https://github.com/MJVergotti/CoralCarb_Rpackage.git")
+# Install CoralCarb (via SSH for private repository access)
+remotes::install_github("MJVergotti/CoralCarb_Rpackage", protocol = "ssh")
 ```
 
 ## Use
 The main functions are to calculate the parameters of the coral upregulation system (pH<sub>cf</sub>, DIC<sub>cf</sub>, &Omega;<sub>cf</sub>). 
 It can also be used to apply the species specific calibration equations currently available in the literature to reconstruct pH<sub>sw</sub> from pH<sub>cf</sub>.
+The package also includes a "master" function that allows to calculate all parameters of the calcifying fluid and pHsw reconstructions using raw geochemical data (d11B and B/Ca) and environmental data (temperature and salinity) for a given coral species. 
 
 ### Example: reconstruct pHsw from coral skeletons
 ```r
 # Load the package
 library(CoralCarb)
 
-# 1. Calculate pHsw from the pHcf obtained from Cladocora caepsitosa using the following species-specific equation:
+# 1. Calculate pHsw from the pHcf obtained from Cladocora caespitosa using the following species-specific equation:
 # Delta_pH_Cladocora = 4.7974 - 0.521*pHsw; with Delta_pH = pHcf - pHsw (Trotter et al. 2011)
 estimated_pHcf <- 8.7
 pHsw_Cladocora <- pHsw_coral(pHcf = estimated_pHcf, species = "Cladocora caespitosa")
@@ -38,6 +39,19 @@ print(pHsw_Cladocora)
 estimated_pHcf <- 8.7
 pHsw_Porites <- pHsw_coral(pHcf = estimated_pHcf, species = "Porites sp.")
 print(pHsw_Porites)
+
+# 3. Run complete calculation for a single sample
+results <- coralCF(
+  TCel = 25, 
+  Sal = 35, 
+  d11B = 24.43, 
+  BCa = 664.8, 
+  species = "Cladocora caespitosa"
+)
+
+# View summary of key calcifying fluid and reconstructed parameters
+results[, c("pHcf", "pHsw", "borate_cf", "carbonate_cf", "DICcf", "arg_sat_cf")]
+
 ```
 
 ## Comments and support
