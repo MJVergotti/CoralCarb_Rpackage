@@ -13,7 +13,7 @@ The `CoralCarb` package is currently only available from GitHub.
 It can be installed by runing the following code:
 ```r
 # If you don't have remotes installed:
-# install.packages("remotes")
+#install.packages("remotes")
 
 # Install CoralCarb
 remotes::install_github("MJVergotti/CoralCarb_Rpackage")
@@ -52,7 +52,13 @@ results <- coralCF(
 
 # View summary of key calcifying fluid and reconstructed parameters
 results[, c("pHcf", "pHsw", "borate_cf", "carbonate_cf", "DICcf", "arg_sat_cf")]
+```
 
+## Citation
+If you use **CoralCarb** in your research, please cite it as follows:
+
+```r
+citation("CoralCarb")
 ```
 
 ## Comments and support
