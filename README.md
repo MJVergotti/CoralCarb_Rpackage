@@ -14,8 +14,8 @@ It can be installed by runing the following code:
 # If you don't have remotes installed:
 # install.packages("remotes")
 
-# Install CoralCarb (via SSH for private repository access)
-remotes::install_github("MJVergotti/CoralCarb_Rpackage", protocol = "ssh")
+# Install CoralCarb
+remotes::install_github("MJVergotti/CoralCarb_Rpackage")
 ```
 
 ## Use
