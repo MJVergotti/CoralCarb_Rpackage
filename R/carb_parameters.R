@@ -249,3 +249,91 @@ arg_sat_cf <- function(carbonate, Ksp, ca_sw = 0.0112){
   arg_sat_cf <- ((carbonate/(10^6))* ca_sw)/Ksp
   return(arg_sat_cf)
 }
+
+#' Master function that calculated all parameters of Coral Calcifying Fluid and Seawater Chemistry
+#' 
+#' Calculates the complete set of CF carbonate chemistry and seawater pH reconstruction from parameters from raw experimental and environmental data in a single step.
+#' 
+#' @param TCel Temperature in degrees Celsius.
+#' @param Sal Salinity in UPS.
+#' @param d11B The d11B of the coral skeleton (in permil).
+#' @param BCa The B/Ca ratio of the coral skeleton (in mmol/mol).
+#' @param d11Bsw Seawater d11B (in permil). Default is 39.5 (Foster 2008). Alternative is 39.61 (D'Olivo and McCulloch 2017).
+#' @param alpha_klochko Isotopic fractionation factor alpha. Default is 1.0272 (Klochko et al. 2006).
+#' @param species Coral species for pH reconstruction. Defaults to "Cladocora caespitosa".
+#' @param ca_sw Concentration of Ca ions in seawater (mol/kg). Default is 0.0112 (McCulloch et al. 2012).
+#' 
+#' @return A \code{data.frame} (or vector if single inputs are provided) containing all calculated 
+#'   constants, pH values, ion concentrations, and saturation states.
+#' @examples
+#' # Calculate for single values
+#' coralCF(TCel = 25, Sal = 35, d11B = 24.43, BCa = 664.8)
+#' 
+#' # Vectorized calculation for multiple samples
+#' df_results <- coralCF(
+#'   TCel = c(25, 26), 
+#'   Sal = c(35, 36), 
+#'   d11B = c(24.43, 25.10), 
+#'   BCa = c(664.8, 670.2)
+#' )
+#' @export
+coralCF <- function(TCel, 
+                    Sal, 
+                    d11B, 
+                    BCa, 
+                    d11Bsw = 39.5, 
+                    alpha_klochko = 1.0272, 
+                    species = c("Cladocora caespitosa",
+                                "Porites sp.", 
+                                "Porites cylindrica", 
+                                "Acropora nobilis", 
+                                "Acropora sp.", 
+                                "Stylophora pistillata"), 
+                    ca_sw = 0.0112) {
+  # Validate species selection
+  species <- match.arg(species)
+  
+  # 1. Temperature & Constants
+  TKelv <- TCel_to_Kelv(TCel)
+  Ksp   <- Ksp_arag(TCel, Sal)
+  B_tot <- Btot(Sal)
+  K1    <- K1_sw(TCel, Sal)
+  K2    <- K2_sw(TCel, Sal)
+  Kb    <- Kb_sw(TCel, Sal)
+  
+  # 2. Calcifying Fluid pH & Seawater pH Reconstruction
+  pH_cf <- pHcf(Kb = Kb, d11B = d11B, d11Bsw = d11Bsw, alpha_klochko = alpha_klochko)
+  pH_sw <- pHsw_coral(pHcf = pH_cf, species = species)
+  
+  # 3. Ions & Speciation
+  H_cf       <- protons_cf(pH_cf)
+  Kd         <- Kd_BCa(H_cf)
+  BOH3       <- borate_cf(Btot = B_tot, protons = H_cf, Kb = Kb)
+  CO3        <- carbonate_cf(Kd = Kd, borate = BOH3, BCa = BCa)
+  DIC_cf     <- DICcf(carbonate = CO3, protons = H_cf, K1 = K1, K2 = K2)
+  Omega_arag <- arg_sat_cf(carbonate = CO3, Ksp = Ksp, ca_sw = ca_sw)
+  
+  # Return structured data frame
+  results <- data.frame(
+    TCel         = TCel,
+    Sal          = Sal,
+    TKelv        = TKelv,
+    d11B         = d11B,
+    BCa          = BCa,
+    Kb           = Kb,
+    Ksp          = Ksp,
+    Btot         = B_tot,
+    K1           = K1,
+    K2           = K2,
+    pHcf         = pH_cf,
+    pHsw         = pH_sw,
+    protons_cf   = H_cf,
+    Kd_BCa       = Kd,
+    borate_cf    = BOH3,
+    carbonate_cf = CO3,
+    DICcf        = DIC_cf,
+    arg_sat_cf   = Omega_arag
+  )
+  
+  return(results)
+}
