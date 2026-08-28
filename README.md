@@ -3,6 +3,7 @@ An R package to calculate the carbonate parameters of coral calcifying fluid.
 
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![R-CMD-check](https://github.com/MJVergotti/CoralCarb_Rpackage/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/MJVergotti/CoralCarb_Rpackage/actions/workflows/R-CMD-check.yaml)
+[![DOI](https://zenodo.org/badge/1073697133.svg)](https://doi.org/10.5281/zenodo.22146882)
 
 ## Overview
 `CoralCarb` provides a set of functions based on published equations in an attempt to facilitate coral researchers workflow when calculating carbonate chemistry parameters within the coral calcifying fluid, using measured biological inputs (&delta;<sup>11</sup>B and B/Ca) and environmental inputs (temperature and salinity). 
