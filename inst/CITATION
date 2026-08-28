@@ -1,0 +1,9 @@
+bibentry(
+  bibtype  = "Manual",
+  title    = "CoralCarb: Coral Calcifying Fluid Carbonate Parameters Calculation Package",
+  author   = person("Marina J.", "Vergotti", email = "mj.vergotti@gmail.com", role = c("aut", "cre")),
+  year     = "2026",
+  note     = "R package version 0.1.0",
+  doi      = "10.5281/zenodo.22146883",
+  url      = "https://github.com/MJVergotti/CoralCarb_Rpackage"
+)

@@ -1,7 +1,7 @@
 Package: CoralCarb
 Type: Package
 Title: Coral Calcifying Fluid Carbonate Parameters Calculation Package
-Version: 0.0.0.9000
+Version: 0.1.0
 Authors@R: person("Marina J.", "Vergotti", email = "mj.vergotti@gmail.com", role = c("aut", "cre"))
 Description: Provides functions for calculating carbonate chemistry parameters 
     of the coral calcifying fluid based on d11B, B/Ca, Temperature, and Salinity inputs.
