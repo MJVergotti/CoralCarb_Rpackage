@@ -231,7 +231,7 @@ carbonate_cf <- function(Kd, borate, BCa){
 #' DICcf_1 <- DICcf(930.5, 3.04e-09, 1.47e-06, 1.16e-09)
 #' @export
 DICcf <- function(carbonate, protons, K1, K2){
-  DICcf <- carbonate * (1 + (protons/K2) + (protons/(K1*K2)))
+  DICcf <- carbonate * (1 + (protons/K2) + (protons/K1*K2))
   return(DICcf)
 }
 
